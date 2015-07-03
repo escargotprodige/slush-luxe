@@ -1,0 +1,23 @@
+{
+  "name": "slush-luxe",
+  "version": "1.0.0",
+  "description": "Slush generator for the luxe engine (HaXe)",
+  "main": "slushfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slushgenerator",
+    "haxe",
+    "luxe"
+  ],
+  "author": "Zénon Roy",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-install": "^0.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.0.0",
+    "inquirer": "^0.8.5"
+  }
+}
