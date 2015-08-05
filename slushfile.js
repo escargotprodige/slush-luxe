@@ -67,21 +67,10 @@ gulp.task('state', function(done) {
 });
 
 gulp.task('gulp', function(done) {
-  inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'continue',
-      message: 'Are you sure you want to use gulp.js in your project?'
-    }
-  ], function(answer) {
-    if (!answer.continue) {
-      done();
-    }
     gulp.src(__dirname + "/templates/gulp/**")
       .pipe(gulp.dest('./'))
       .pipe(install())
       .on('finish', function() {
         done();
     });
-  });
 });

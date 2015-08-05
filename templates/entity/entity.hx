@@ -8,7 +8,7 @@ class <%= name %> extends Entity {
 
   }//init
 
-  override function update(){
+  override function update(dt:Float){
 
   }//update
 

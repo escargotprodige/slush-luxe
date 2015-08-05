@@ -8,8 +8,8 @@ class <%= name %> extends State {
 
   }//init
 
-  override function update(){
+  override function update(dt:Float){
 
   }//update
-  
+
 }//<%= name %>

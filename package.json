@@ -1,6 +1,6 @@
 {
   "name": "slush-luxe",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Slush generator for the luxe engine (HaXe)",
   "main": "slushfile.js",
   "scripts": {
