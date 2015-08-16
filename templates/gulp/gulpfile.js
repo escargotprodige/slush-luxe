@@ -1,31 +1,30 @@
 var gulp = require('gulp'),
-  connect = require('gulp-connect'),
+  browserSync = require('browser-sync').create(),
   exec = require('child_process').exec,
-  watch = require('gulp-watch'),
   gh = require('gh-pages'),
-  path = require('path'),
-  opn = require('opn');
+  path = require('path');
 
-gulp.task('haxe', function(done){
+gulp.task('haxe:build', function(done){
   exec('haxelib run flow build web', done);
 });
 
-gulp.task('connect', ['haxe'], function(done){
-  connect.server({
-    root: 'bin/web',
-    livereload: true
+gulp.task('haxe:watch', ['haxe:build'], function(done){
+  browserSync.reload();
+  done();
+})
+
+gulp.task('watch',  function(done){
+  browserSync.init({
+    server: {
+      baseDir: './bin/web'
+    }
   });
 
-  opn('http://localhost:8080', done)
+  gulp.watch(['src/**', 'assets/**'], ['haxe:watch']);
 });
 
-gulp.task('watch', function(){
-  gulp.watch(['src/**', 'assets/**'], ['haxe']);
-  watch('bin/web').pipe(connect.reload());
-});
+gulp.task('default', ['haxe:build', 'watch']);
 
-gulp.task('default', ['connect', 'watch']);
-
-gulp.task('deploy', ['haxe'], function (done) {
-  gh.publish(path.join(__dirname, 'bin/web'))
+gulp.task('deploy', ['haxe:build'], function (done) {
+  gh.publish(path.join(__dirname, 'bin/web'));
 });
