@@ -2,7 +2,7 @@ package states;
 
 import luxe.States;
 
-class <%= name %> extends State {
+class <%= _.capitalize(name) %> extends State {
 
   override function init(){
 
